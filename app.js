@@ -15,12 +15,12 @@
   };
 
   function run() {
-    return Outlook.run(function (context) {
-      /**
-       * Insert your outlook code here
-       */
-      return context.sync();
-    });
+    
+    
+    /**
+     * Insert your Outlook code here
+     */
+    
   }
 
 })();
