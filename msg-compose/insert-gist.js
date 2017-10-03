@@ -57,7 +57,6 @@
           settingsDialog = result.value;
           settingsDialog.addEventHandler(Microsoft.Office.WebExtension.EventType.DialogMessageReceived, receiveMessage);
           settingsDialog.addEventHandler(Microsoft.Office.WebExtension.EventType.DialogEventReceived, dialogClosed);
-          event.completed();
         });
       })
     });
