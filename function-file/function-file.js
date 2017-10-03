@@ -1,4 +1,5 @@
 var config;
+var btnEvent;
 
 Office.initialize = function () {
   config = getConfig();
@@ -44,16 +45,17 @@ function insertDefaultGist(event) {
     }
     
   } else {
+    // Save the event object so we can finish up later
+    btnEvent = event;
     // Not configured yet, display settings dialog with
     // warn=1 to display warning.
     var url = new URI('../settings/dialog.html?warn=1').absoluteTo(window.location).toString();
-    var dialogOptions = { width: 20, height: 40 };
+    var dialogOptions = { width: 20, height: 40, displayInIframe: true };
     
     Office.context.ui.displayDialogAsync(url, dialogOptions, function(result) {
       settingsDialog = result.value;
       settingsDialog.addEventHandler(Microsoft.Office.WebExtension.EventType.DialogMessageReceived, receiveMessage);
       settingsDialog.addEventHandler(Microsoft.Office.WebExtension.EventType.DialogEventReceived, dialogClosed);
-      event.completed();
     });
   }
 }
@@ -63,9 +65,13 @@ function receiveMessage(message) {
   setConfig(config, function(result) {
     settingsDialog.close();
     settingsDialog = null;
+    btnEvent.completed();
+    btnEvent = null;
   });
 }
 
 function dialogClosed(message) {
   settingsDialog = null;
+  btnEvent.completed();
+  btnEvent = null;
 }
