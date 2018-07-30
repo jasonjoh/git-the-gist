@@ -10,7 +10,7 @@ This sample add-in uses the [GitHub Gists API](https://developer.github.com/v3/g
 
 1. Clone or download the repository.
 1. Open a command prompt/shell to the root of the repository and run the following command: `npm start`.
-    - If your browser indicates that the site's certificate is not trusted, you will need to add the certificate as a trusted certificate. Outlook will not load add-ins if the site is not trusted. See [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.mdnp) for details.
+    - If your browser indicates that the site's certificate is not trusted, you will need to add the certificate as a trusted certificate. Outlook will not load add-ins if the site is not trusted. See [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md) for details.
     - If the browser does not indicate a problem with the certificate, proceed to the next step.
 1. Open Outlook 2016. On the **Home** tab in the ribbon, click the **Store** button.
 1. In the Store UI, click the text **Click here to add a custom add-in**, and select **Add from file...**. Browse to the `git-the-gist-manifest.xml` file and click **Open**. Click **Install** when prompted.
